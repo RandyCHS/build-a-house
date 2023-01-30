@@ -1,0 +1,28 @@
+{
+    "name": "Build A House",
+    "description": "",
+    "dependencies": {
+        "core": "*",
+        "builder": "*"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "branch": "v1.6.30",
+        "tag": "v1.6.30",
+        "commits": "https://github.com/microsoft/pxt-minecraft/commits/f6a2b4349795313ccaef1b19b248008ce106e980",
+        "target": "1.7.6",
+        "pxt": "8.1.11",
+        "targetId": "minecraft"
+    },
+    "supportedTargets": [
+        "minecraft"
+    ],
+    "preferredEditor": "blocksprj"
+}
