@@ -1,7 +1,7 @@
 function createFoundation (foundationLength: number) {
     // Builder will build a platform that is a length x length square
     for (let index = 0; index < foundationLength; index++) {
-        createLine(foundationLength)
+        createLine(foundationLength, "stone")
         builder.move(BACK, foundationLength)
         builder.move(LEFT, 1)
     }
@@ -26,9 +26,15 @@ player.onChat("build_house", function (length, height) {
     createFoundation(length)
     createWalls(length, height)
 })
-function createLine (lineLength: number) {
+function createLine (lineLength: number, blockType: string) {
     for (let index = 0; index < lineLength; index++) {
-        builder.place(COBBLESTONE)
+        if (blockType == "stone") {
+            builder.place(COBBLESTONE)
+        } else if (blockType == "wood") {
+            builder.place(PLANKS_OAK)
+        } else {
+        	
+        }
         builder.move(FORWARD, 1)
     }
 }
@@ -37,7 +43,7 @@ function createWalls (wallLength: number, wallHeight: number) {
     for (let index = 0; index < wallHeight; index++) {
         builder.move(UP, 1)
         for (let index = 0; index < 4; index++) {
-            createLine(wallLength)
+            createLine(wallLength, "wood")
             builder.move(BACK, 1)
             builder.turn(LEFT_TURN)
         }
