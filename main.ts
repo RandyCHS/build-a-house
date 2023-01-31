@@ -6,10 +6,6 @@ function createFoundation (foundationLength: number) {
         builder.move(LEFT, 1)
     }
 }
-player.onChat("build_house", function (length) {
-    builder.teleportTo(positions.groundPosition(pos(0, 0, 0)))
-    createFoundation(length)
-})
 player.onChat("agent_house", function (length) {
     agent.teleport(positions.groundPosition(pos(0, 0, 0)), NORTH)
     agent.move(UP, 1)
@@ -24,9 +20,26 @@ player.onChat("agent_house", function (length) {
         agent.move(LEFT, 1)
     }
 })
+player.onChat("build_house", function (length, height) {
+    builder.teleportTo(positions.groundPosition(pos(length / 2, 0, length / 2)))
+    builder.setOrigin()
+    createFoundation(length)
+    createWalls(length, height)
+})
 function createLine (lineLength: number) {
     for (let index = 0; index < lineLength; index++) {
         builder.place(COBBLESTONE)
         builder.move(FORWARD, 1)
+    }
+}
+function createWalls (wallLength: number, wallHeight: number) {
+    builder.teleportToOrigin()
+    for (let index = 0; index < wallHeight; index++) {
+        builder.move(UP, 1)
+        for (let index = 0; index < 4; index++) {
+            createLine(wallLength)
+            builder.move(BACK, 1)
+            builder.turn(LEFT_TURN)
+        }
     }
 }
