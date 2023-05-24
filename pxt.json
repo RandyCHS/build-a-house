@@ -17,12 +17,12 @@
         "branch": "v1.6.30",
         "tag": "v1.6.30",
         "commits": "https://github.com/microsoft/pxt-minecraft/commits/f6a2b4349795313ccaef1b19b248008ce106e980",
-        "target": "1.7.6",
+        "target": "1.7.7",
         "pxt": "8.1.11",
         "targetId": "minecraft"
     },
     "supportedTargets": [
         "minecraft"
     ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "tsprj"
 }
